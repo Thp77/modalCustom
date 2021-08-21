@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Sweet Alerte</h1>
+    <button id="btn1">Clique ici</button>
+
+
+
+    <script>
+        let texte = "Tipsy the Brave";
+
+        let btn = document.getElementById('btn1');
+        btn.onclick = function () {
+
+            // alert de base " Swal = sweetAlert// 
+            // swal("hello !")
+
+            // Titre + texte //
+            // swal("mon Titre" , texte )
+
+            // Alert with icon " Info , warning , error , success" //
+            // swal("félicitation !", " votre commande est prise en comptre" , "warning" )
+
+            //Alert avec des objets en parametre //
+            // swal({
+            //     title: "Bravo !",
+            //     text: "La commande arrive",
+            //     icon: "success",
+            //     button : "félicitations !"
+            // })
+
+            // utilisation des promesses
+            // false si il clique en dehors , true si il confirme
+
+
+            // swal("cliquez pour confirmez")
+            //     .then((value) => {
+            //         swal(`La valeur retournée est : ${value}`);
+            //     })
+
+
+
+//Permet d'informer que le retour en arriere et impossible ! 
+
+            swal({
+                title: "Etes-vous sûr?",
+                text: "Une fois cliqué sur 'Ok', pas de retour en arrière. ",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true
+            })
+            .then((ok) => {
+                if(ok) {
+                    swal("Votre commande est en cours de Livraison!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("Vous avez perdu vos couilles !",{
+                        icon:"info"
+                    });
+                }
+            });
+
+
+
+        }
+    </script>
+</body>
+
+</html>
